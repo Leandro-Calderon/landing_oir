@@ -1,0 +1,83 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Services from "../components/Services.astro";
+import Clients from "../components/Clients.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppFAB from "../components/WhatsAppFAB.astro";
+import Toast from "../components/Toast.astro";
+import "../styles/global.css";
+---
+
+<Layout>
+  <Navbar />
+  <main>
+    <Hero />
+    <About />
+    <Services />
+    <Clients />
+    <Contact />
+  </main>
+  <Footer />
+  <WhatsAppFAB />
+  <Toast />
+</Layout>
+
+<script>
+  // ── Scroll Reveal with IntersectionObserver ──
+  const revealElements = document.querySelectorAll(".reveal");
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    }
+  );
+
+  revealElements.forEach((el) => revealObserver.observe(el));
+
+  // ── Copy to Clipboard ──
+  document.querySelectorAll(".copy-btn").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const email = (btn as HTMLElement).dataset.email;
+      if (!email) return;
+
+      try {
+        await navigator.clipboard.writeText(email);
+      } catch {
+        // Fallback for older browsers / insecure contexts
+        const textarea = document.createElement("textarea");
+        textarea.value = email;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+      }
+
+      // Show toast
+      const toast = document.getElementById("toast");
+      if (toast) {
+        toast.classList.remove("opacity-0", "pointer-events-none");
+        toast.classList.add("opacity-100", "translate-y-2");
+
+        setTimeout(() => {
+          toast.classList.add("opacity-0", "pointer-events-none");
+          toast.classList.remove("opacity-100", "translate-y-2");
+        }, 2500);
+      }
+    });
+  });
+</script>

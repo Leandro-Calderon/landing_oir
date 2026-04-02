@@ -1,0 +1,39 @@
+---
+import ContactCard from "./ContactCard.astro";
+---
+
+<section
+  class="py-16 bg-surface-dim/20 w-full overflow-hidden"
+  id="contacto"
+  aria-label="Contacto"
+>
+  <div class="w-full px-5 max-w-7xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-10">
+      <span class="text-xs font-bold uppercase tracking-widest text-primary mb-3 block">
+        Contacto
+      </span>
+      <h2 class="text-3xl font-bold text-on-background">¿Cómo podemos ayudarte?</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+      <!-- Presupuesto -->
+      <ContactCard
+        icon="request_quote"
+        title="Solicitar Presupuesto"
+        description="Si su empresa necesita un plan de seguridad, nuestro equipo lo asesorará."
+        email="presupuesto@oirseguridad.com"
+        iconBgClass="bg-primary-light"
+      />
+
+      <!-- RRHH -->
+      <ContactCard
+        icon="work"
+        title="Envíanos tu CV"
+        description="Buscamos personal de vigilancia comprometido para sumarse a nuestro equipo."
+        email="recursoshumanos@oirseguridad.com"
+        iconBgClass="bg-surface-alt"
+      />
+    </div>
+  </div>
+</section>

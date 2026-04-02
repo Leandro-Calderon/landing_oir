@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/* ── Paleta O.I.R. Seguridad ── */
+@theme {
+  /* Colores principales */
+  --color-primary: #0056b3;
+  --color-primary-dark: #003f87;
+  --color-primary-light: #d7e2ff;
+  --color-primary-soft: #acc7ff;
+
+  /* Fondos y superficies */
+  --color-surface: #f7fafd;
+  --color-surface-alt: #f1f4f7;
+  --color-surface-dim: #e9ecef;
+  --color-surface-card: #ffffff;
+
+  /* Texto */
+  --color-on-background: #181c1e;
+  --color-on-surface: #424752;
+  --color-on-primary: #ffffff;
+
+  /* Acentos */
+  --color-secondary: #111111;
+  --color-error: #ba1a1a;
+  --color-success: #25d366;
+  --color-outline: #c2c6d4;
+
+  /* Tipografía */
+  --font-body: "Inter", sans-serif;
+  --font-headline: "Inter", sans-serif;
+
+  /* Bordes */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+}
+
+/* ── Estilos base ── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  font-family: var(--font-body);
+  background-color: var(--color-surface);
+  color: var(--color-on-background);
+}
+
+/* ── Hero gradient overlay ── */
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 63, 135, 0.9) 0%,
+    rgba(0, 26, 64, 0.95) 100%
+  );
+}
+
+/* ── Material Symbols config ── */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* ── Scroll reveal animations ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Selection color ── */
+::selection {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+}

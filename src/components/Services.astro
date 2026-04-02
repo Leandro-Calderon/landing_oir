@@ -1,0 +1,63 @@
+---
+import ServiceCard from "./ServiceCard.astro";
+
+const services = [
+  {
+    icon: "corporate_fare",
+    title: "Resguardo Patrimonial",
+    description:
+      "Protección integral de activos críticos y estructuras edilicias con protocolos de seguridad física de vanguardia.",
+  },
+  {
+    icon: "gate",
+    title: "Portería y Control",
+    description:
+      "Gestión de accesos y egresos para consorcios y plantas industriales con foco en la prevención.",
+  },
+  {
+    icon: "agriculture",
+    title: "Seguridad Rural",
+    description:
+      "Vigilancia estratégica en zonas rurales y campos, previniendo daños a la propiedad privada.",
+  },
+  {
+    icon: "factory",
+    title: "Industrias y Comercios",
+    description:
+      "Planes de contingencia a medida para grandes superficies comerciales y complejos industriales.",
+  },
+  {
+    icon: "event",
+    title: "Seguridad en Eventos",
+    description:
+      "Cobertura logística y operativa para eventos corporativos y sociales con personal especializado.",
+  },
+];
+---
+
+<section
+  class="py-16 bg-surface-alt w-full overflow-hidden"
+  id="servicios"
+  aria-label="Servicios"
+>
+  <div class="w-full px-5 max-w-7xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-10">
+      <span class="text-xs font-bold uppercase tracking-widest text-primary mb-3 block">
+        Nuestras Soluciones
+      </span>
+      <h2 class="text-3xl font-bold text-on-background">Servicios de Vigilancia</h2>
+    </div>
+
+    <!-- Service Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {services.map((service) => (
+        <ServiceCard
+          icon={service.icon}
+          title={service.title}
+          description={service.description}
+        />
+      ))}
+    </div>
+  </div>
+</section>
